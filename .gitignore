@@ -1,0 +1,5 @@
+/node_modules
+npm-debul.log
+.DS_Store
+/*.env
+/client/build

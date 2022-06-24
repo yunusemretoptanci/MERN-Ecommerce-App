@@ -1,0 +1,21 @@
+.categories{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.categories-list ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.categories-list ul li{
+    margin: 0 10px;
+}
+
+.categories h2{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family: 'Righteous', cursive;
+}
+
