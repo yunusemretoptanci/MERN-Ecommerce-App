@@ -57,8 +57,23 @@
 .amount-number p{
     margin: 0;
 }
-
-
+.notification-container-empty{
+    display: none;
+    opacity: 1;
+    transition: 0.2s;
+}
+.notification-container{
+    background-color: #65C18C;
+    width: fit-content;
+    color:white;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 250px;
+}
+.notification-container div{
+    padding: 5px;
+}
 .button {
   text-align: center;
   text-transform: uppercase;
@@ -133,6 +148,11 @@
         margin-left: 0px;
     }
     .buttons{
-        width: 75%;
+        width: 100%;
+        gap: 20px
+    }
+    .buttons button{
+        padding: 10px;
+        width: 100%;
     }
  }

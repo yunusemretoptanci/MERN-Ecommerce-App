@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import {addProduct} from "../../redux/cartRedux";
 import {useDispatch} from "react-redux";
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const SingleProduct=()=>{
     
@@ -30,14 +30,19 @@ useEffect(()=>{
 
 const handleClick=()=>{
     dispatch(addProduct({...product,quantity}));
+    NotificationManager.success('Product succsessfully added to cart!',"",1000)
 }
 
     return(
          <>
             <Header></Header>
+            <div>
+
+            </div>
+            
             <div className="singleProduct">
                 <div className="single-img-container">
-                <img src={product.img}></img>
+                    <img src={product.img}></img>
                 </div>
                     
                 
@@ -54,7 +59,7 @@ const handleClick=()=>{
                         
                         <p>Size: {product.size}</p>
                     </div>
-                    
+                    <NotificationContainer />
                     <div className="buttons">
 
                     <div className="inc-dec">
