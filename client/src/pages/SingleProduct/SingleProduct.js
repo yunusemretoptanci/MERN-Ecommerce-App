@@ -36,8 +36,10 @@ const handleClick=()=>{
          <>
             <Header></Header>
             <div className="singleProduct">
-                
-                    <img src={product.img}></img>
+                <div className="single-img-container">
+                <img src={product.img}></img>
+                </div>
+                    
                 
                 <div className="process-container">
                     <h3>{product.title}</h3>
