@@ -9,7 +9,6 @@ const Cart=()=>{
     const dispatch = useDispatch();
 
     const handleDelete = (id, price, quantity) => {
-        console.log("clccickdk")
         dispatch(deleteProduct({ id, price, quantity }));
       };
 

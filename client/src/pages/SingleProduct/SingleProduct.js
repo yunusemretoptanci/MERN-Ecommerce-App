@@ -5,8 +5,8 @@ import { publicRequest } from "../../requestMethod";
 import Header from "../../components/Header/Header";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import {addProduct} from "../../redux/cartRedux";
-import {useDispatch} from "react-redux";
+import {addProduct,updateProduct} from "../../redux/cartRedux";
+import {useDispatch, useSelector} from "react-redux";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const SingleProduct=()=>{
@@ -16,6 +16,8 @@ const id=location.pathname.split("/")[2];
 const [product,setProduct]=useState({});
 const dispatch=useDispatch();
 const [quantity, setQuantity] = useState(1);
+
+const cart=useSelector((state)=>state.cart)
 
 useEffect(()=>{
     const getProduct=async()=>{
@@ -29,7 +31,30 @@ useEffect(()=>{
 },[id]);
 
 const handleClick=()=>{
-    dispatch(addProduct({...product,quantity}));
+    console.log(cart.products)
+    const carts=cart.products;
+
+    carts.forEach(element => {
+        if(element._id==product._id){
+            dispatch(updateProduct({...product,quantity}))
+        }
+    });
+
+    var i=0;
+    carts.forEach(element => {
+        if(element._id!=product._id){
+            i++;
+            if(i==carts.length){
+                dispatch(addProduct({...product,quantity}));
+                i=0;
+            }
+        }
+    });
+
+    if(carts.length==0){
+        dispatch(addProduct({...product,quantity}));
+    }
+    
     NotificationManager.success('Product succsessfully added to cart!',"",1000)
 }
 
