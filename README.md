@@ -13,9 +13,5 @@
 - MongoDB Atlas
 - NodeJS
 
-## Upcoming Features
-- More categories
-- Stripe payment
-- All order list
 
 
